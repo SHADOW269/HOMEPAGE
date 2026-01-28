@@ -112,7 +112,7 @@
     - Pulse Monitoring:
         id: sidebar
         icon: pulse
-        href: "#"
+        href: http://{{HOMEPAGE_VAR_LXC_IP}}:7655
         description: Pulse Stats
         siteMonitor: http://{{HOMEPAGE_VAR_LXC_IP}}:7655
           
