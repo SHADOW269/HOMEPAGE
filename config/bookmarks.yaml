@@ -1,0 +1,62 @@
+---
+- FavSites:
+    - YOUTUBE:
+        - icon: youtube
+          href: https://youtube.com/
+    - DRIVE:
+        - icon: google-drive
+          href: https://drive.google.com/drive/my-drive
+    - GMAIL:
+        - icon: gmail
+          href: https://mail.google.com/
+    - GEMINI:
+        - icon: google-gemini
+          href: https://gemini.google.com/ 
+    - INSTAGRAM:
+        - icon: instagram
+          href: https://drive.filen.io/login  
+    - GITHUB:
+        - icon: github
+          href: https://github.com/SHADOW269  
+    - PROTON:
+        - icon: proton-mail
+          href: https://mail.proton.me/u/3/inbox
+    - CHATGPT:
+        - icon: chatgpt
+          href: https://chatgpt.com/
+    - REDDIT:
+        - icon: reddit
+          href: https://www.reddit.com/
+    - SPOTIFY:
+        - icon: spotify
+          href: https://open.spotify.com/
+    - WHATSAPP:
+        - icon: whatsapp
+          href: https://web.whatsapp.com/
+    - X:
+        - icon: x
+          href: https://x.com/
+    - LinkedIn:
+        - icon: linkedin
+          href: https://linkedin.com/
+    - Notion:
+        - icon: notion
+          href: https://notion.so/
+    - Amazon:
+        - icon: amazon
+          href: https://amazon.in/
+    - Maps:
+        - icon: google-maps
+          href: https://maps.google.com/
+    - Cloudflare:
+        - icon: cloudflare
+          href: https://cloudflare.com/
+    - TryHackMe:
+        - icon: tryhackme
+          href: https://tryhackme.com/
+    - Hackviser:
+        - icon: https://external-content.duckduckgo.com/ip3/hackviser.com.ico
+          href: https://hackviser.com/
+    - Canva:
+        - icon: https://external-content.duckduckgo.com/ip3/canva.in.ico
+          href: https://canva.com/

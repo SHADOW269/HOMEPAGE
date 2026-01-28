@@ -1,0 +1,25 @@
+---
+
+- search:
+    provider: google
+    focus: true
+    target: _blank
+
+- resources:
+    cpu: true
+    memory: true
+    cputemp: true
+    tempmin: 0
+    tempmax: 100
+    uptime: true
+    units: metric
+    refresh: 3000
+
+- openmeteo: 
+    label: {{HOMEPAGE_VAR_CITY}}
+    latitude: {{HOMEPAGE_VAR_LAT}}
+    longitude: {{HOMEPAGE_VAR_LONG}}
+    timezone: {{HOMEPAGE_VAR_TZ}}
+    units: metric
+    cache: 30
+

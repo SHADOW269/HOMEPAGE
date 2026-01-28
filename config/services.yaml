@@ -1,0 +1,206 @@
+---
+- Infrastructure:
+    - Proxmox:
+        icon: proxmox.png
+        href: "https://{{HOMEPAGE_VAR_PROXMOX_IP}}:8006"
+        widget:
+          type: proxmox
+          url: "https://{{HOMEPAGE_VAR_PROXMOX_IP}}:8006"
+          username: "{{HOMEPAGE_VAR_PROXMOX_TOKEN_ID}}"
+          password: "{{HOMEPAGE_VAR_PROXMOX_TOKEN_SECRET}}"
+          node: ghost
+          show_resources: true
+          controls: true
+          allowInsecure: true
+
+    - Portainer:
+        icon: https://cdn.worldvectorlogo.com/logos/portainer.svg
+        href: https://{{HOMEPAGE_VAR_LXC_IP}}:9443
+        description: Container Management
+        server: my-docker
+        container: portainer
+        widget:
+          type: portainer
+          url: https://{{HOMEPAGE_VAR_LXC_IP}}:9443
+          env: 3  
+          key: {{HOMEPAGE_VAR_PORTAINER_KEY}}
+          fields: ["running", "stopped", "total"]
+
+    - TrueNAS Apps:
+        icon: https://cdn.worldvectorlogo.com/logos/portainer.svg
+        href: http://{{HOMEPAGE_VAR_TRUENAS_IP}}
+        description: TrueNAS Docker Apps
+        widget:
+          type: portainer
+          url: https://{{HOMEPAGE_VAR_LXC_IP}}:9443
+          env: 4  
+          key: {{HOMEPAGE_VAR_PORTAINER_KEY}}
+          fields: ["running", "stopped", "total"]
+
+    - Ubuntu PC:
+        icon: https://cdn.worldvectorlogo.com/logos/portainer.svg
+        href: https://{{HOMEPAGE_VAR_LXC_IP}}:9443
+        description: Ubuntu Desktop Containers
+        widget:
+          type: portainer
+          url: https://{{HOMEPAGE_VAR_LXC_IP}}:9443
+          env: 5 
+          key: {{HOMEPAGE_VAR_PORTAINER_KEY}}
+          fields: ["running", "stopped", "total"]
+    
+    - Beszel:
+        icon: beszel
+        href: http://{{HOMEPAGE_VAR_LXC_IP}}:8090
+        description: System monitoring
+        widget:
+          type: beszel
+          url: http://{{HOMEPAGE_VAR_LXC_IP}}:8090
+          username: {{HOMEPAGE_VAR_BESZEL_USER}}
+          password: {{HOMEPAGE_VAR_BESZEL_PASS}}
+          version: 2
+
+- Monitoring: 
+    - Host Info:
+        id: monitoring-info
+        widget:
+          type: glances
+          url: http://{{HOMEPAGE_VAR_PROXMOX_IP}}:61208
+          metric: info
+          version: 4
+
+    - Host Processes:
+        id: monitoring-processes
+        widget:
+          type: glances
+          url: http://{{HOMEPAGE_VAR_PROXMOX_IP}}:61208
+          metric: process
+          version: 4
+
+    - Host CPU:
+        id: monitoring-cpu
+        widget:
+          type: glances
+          url: http://{{HOMEPAGE_VAR_PROXMOX_IP}}:61208
+          metric: cpu
+          version: 4
+
+    - Host Memory:
+        id: monitoring-memory
+        widget:
+          type: glances
+          url: http://{{HOMEPAGE_VAR_PROXMOX_IP}}:61208
+          metric: memory
+          version: 4
+
+    - CPU Temp:
+        widget:
+          type: glances
+          url: http://{{HOMEPAGE_VAR_PROXMOX_IP}}:61208
+          metric: sensor:Package id 0 # Replace with your sensor name
+          version: 4
+
+    - Storage Usage:
+        widget:
+          type: glances
+          url: http://{{HOMEPAGE_VAR_PROXMOX_IP}}:61208
+          metric: fs:/ # Replace with your mount point (e.g. /mnt/data)
+          version: 4
+    
+
+
+- sidebar_server:
+    - Pulse Monitoring:
+        id: sidebar
+        icon: pulse
+        href: "#"
+        description: Pulse Stats
+        siteMonitor: http://{{HOMEPAGE_VAR_LXC_IP}}:7655
+          
+- Network:
+    - Pi-hole:
+        icon: pi-hole.png
+        href: http://{{HOMEPAGE_VAR_PIHOLE_IP}}/admin/
+        widget:
+          type: pihole
+          url: http://{{HOMEPAGE_VAR_PIHOLE_IP}}
+          version: 6
+          password: {{HOMEPAGE_VAR_PIHOLE_TOKEN}}
+
+    - Speedtest:
+        icon: speedtest-tracker
+        href: http://{{HOMEPAGE_VAR_LXC_IP}}:8080/
+        server: my-docker           
+        container: speedtest-tracker 
+        widget:
+          type: speedtest
+          url: http://{{HOMEPAGE_VAR_LXC_IP}}:8080/
+          key: {{HOMEPAGE_VAR_SPEEDTEST_KEY}}
+          version: 2
+
+    - CF-Homepage:
+        icon: cloudflare
+        href: "#"
+        widget:
+          type: cloudflared
+          accountid: {{HOMEPAGE_VAR_CLOUDFLARE_ACCOUNT_ID}}
+          tunnelid: {{HOMEPAGE_VAR_TUNNEL_ID_HOMEPAGE}}
+          key: {{HOMEPAGE_VAR_CLOUDFLARE_KEY}}
+
+    - CF-Immich:
+        icon: cloudflare
+        href: "#"
+        widget:
+          type: cloudflared
+          accountid: {{HOMEPAGE_VAR_CLOUDFLARE_ACCOUNT_ID}}
+          tunnelid: {{HOMEPAGE_VAR_TUNNEL_ID_IMMICH}}
+          key: {{HOMEPAGE_VAR_CLOUDFLARE_KEY}}
+
+    - CF-Nextcloud:
+        icon: cloudflare
+        href: "#"
+        widget:
+          type: cloudflared
+          accountid: {{HOMEPAGE_VAR_CLOUDFLARE_ACCOUNT_ID}}
+          tunnelid: {{HOMEPAGE_VAR_TUNNEL_ID_NEXTCLOUD}}
+          key: {{HOMEPAGE_VAR_CLOUDFLARE_KEY}}
+
+- Media & Storage:
+    - TrueNAS:
+        icon: truenas
+        href: http://{{HOMEPAGE_VAR_TRUENAS_IP}} 
+        widget:
+          type: truenas
+          url: http://{{HOMEPAGE_VAR_TRUENAS_IP}}
+          key: {{HOMEPAGE_VAR_TRUENAS_KEY}}
+          enablePools: true 
+          nasType: scale    
+    
+    - Nextcloud:
+        icon: nextcloud.png
+        href: http://{{HOMEPAGE_VAR_TRUENAS_IP}}:30027/
+        widget:
+          type: nextcloud
+          url: http://{{HOMEPAGE_VAR_TRUENAS_IP}}:30027/
+          username: {{HOMEPAGE_VAR_NEXTCLOUD_USER}}
+          password: {{HOMEPAGE_VAR_NEXTCLOUD_PASS}}
+            
+    - Immich:
+        icon: immich.png
+        href: http://{{HOMEPAGE_VAR_TRUENAS_IP}}:30041/
+        widget:
+          type: immich
+          url: http://{{HOMEPAGE_VAR_TRUENAS_IP}}:30041/
+          key: {{HOMEPAGE_VAR_IMMICH_KEY}}
+          version: 2 
+
+- Calendar:
+    - Calendar:
+        id: col-40
+        icon: mdi-calendar
+        href: "#"
+        widget:
+          type: calendar
+          firstDayInWeek: sunday
+          view: monthly
+          showTime: true
+          timezone: Asia/Kolkata

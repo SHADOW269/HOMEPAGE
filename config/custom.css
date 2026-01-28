@@ -1,0 +1,94 @@
+/*==================================
+  TAB & NAVIGATION
+==================================*/
+#myTab {
+  display: inline;
+  position: fixed;
+  width: 270px; 
+  top: 95px;
+  border: 1px solid rgba(224, 224, 224, 0.25);
+  z-index: 100;
+}
+ 
+button[id$='-tab'] {
+  text-align: left;
+  padding-left: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+ 
+/*==================================
+  SIDEBAR (PULSE & BOOKMARKS)
+==================================*/
+.bookmark-group,
+#layout-groups > .services-group:has([id="sidebar"]) {
+  position: absolute !important;
+  left: -287px !important; 
+  width: 280px !important;
+  z-index: 100;
+}
+
+.bookmark-group { top: 200px; }
+#layout-groups > .services-group:has([id="sidebar"]) { top: 130px; }
+
+.bookmark-group .service,
+[id*="FavSites"] .service {
+  width: calc(25% - 8px) !important;
+  flex: 0 0 calc(25% - 8px) !important;
+  margin: 4px !important;
+}
+
+/*==================================
+  MAIN CONTENT GRID
+==================================*/
+#layout-groups {
+  position: absolute; 
+  top: 80px; 
+  left: 285px; 
+  right: 20px;
+  display: flex;
+  flex-flow: row wrap; 
+  gap: 20px;
+  align-items: flex-start;
+}
+
+#layout-groups > .services-group:not(:has([id="col-40"])):not(:has([id*="monitoring"])):not(:has([id="sidebar"])) { 
+  flex: 1;
+  min-width: 400px;
+}
+
+#layout-groups > .services-group:has([id="col-40"]) { 
+  flex: 0 0 380px;
+  width: 380px !important;
+}
+
+/*==================================
+  MONITORING (CENTERED BOTTOM - 2 ROWS)
+==================================*/
+#layout-groups > .services-group:has([id*="monitoring"]) {
+  flex: 0 0 100% !important; 
+  position: relative !important;
+  left: 0 !important;
+  top: 0 !important;
+  margin-top: 50px !important;
+  padding: 10px;
+}
+
+#layout-groups > .services-group:has([id*="monitoring"]) > div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Forces the 2-column grid */
+  gap: 15px;
+}
+
+#layout-groups > .services-group:has([id*="monitoring"]) .service-block {
+  background: rgba(24, 24, 27, 0.8);
+  border-radius: 12px;
+  border: 1px solid rgba(224, 224, 224, 0.1);
+  height: 100%; 
+}
+
+#layout-groups > .services-group:has([id*="monitoring"]) h2 {
+  margin-bottom: 20px;
+  font-size: 1.25rem;
+  color: #a1a1aa;
+}

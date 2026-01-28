@@ -1,0 +1,15 @@
+---
+my-docker:
+  socket: /var/run/docker.sock
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    volumes:
+      - /path/to/config:/app/config
+      - /path/to/your/images:/app/public/images
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    env_file:
+      - .env 
+    ports:
+      - 3000:3000
