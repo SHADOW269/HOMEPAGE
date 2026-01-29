@@ -52,6 +52,10 @@ layout:
     tab: Server Management
     header: false
     style: row
+  sidebar_network:
+    tab: Network Management 
+    header: false
+    style: row
   sidebar_media:
     tab: Media Management
     header: false

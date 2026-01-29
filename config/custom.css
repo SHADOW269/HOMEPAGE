@@ -84,6 +84,12 @@
     font-size: 1.25rem;
     color: #a1a1aa;
   }
+  #layout-groups > .services-group:has([id="sidebar"]) { 
+  position: absolute;
+  top: 130px;
+  left: -210px;
+  width: 208px;
+  }
 }
 
 /*==================================

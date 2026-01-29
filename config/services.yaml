@@ -119,12 +119,13 @@
 - Network:
     - Pi-hole:
         icon: pi-hole.png
-        href: http://{{HOMEPAGE_VAR_PIHOLE_IP}}/admin/
+        href: http://{{HOMEPAGE_VAR_LXC_IP}}/admin/
         widget:
           type: pihole
-          url: http://{{HOMEPAGE_VAR_PIHOLE_IP}}
-          version: 6
-          password: {{HOMEPAGE_VAR_PIHOLE_TOKEN}}
+          url: http://{{HOMEPAGE_VAR_LXC_IP}}
+          version: 6           
+          key: {{HOMEPAGE_VAR_PIHOLE_PASSWORD}}
+
 
     - Speedtest:
         icon: speedtest-tracker
@@ -164,6 +165,14 @@
           tunnelid: {{HOMEPAGE_VAR_TUNNEL_ID_NEXTCLOUD}}
           key: {{HOMEPAGE_VAR_CLOUDFLARE_KEY}}
 
+- sidebar_network:
+    - TP-Link Router:
+        id: sidebar 
+        icon: tp-link
+        href: http://{{HOMEPAGE_VAR_GATEWAY}}
+        description: Main Gateway
+        siteMonitor: http://{{HOMEPAGE_VAR_GATEWAY}}
+        
 - Media & Storage:
     - TrueNAS:
         icon: truenas
